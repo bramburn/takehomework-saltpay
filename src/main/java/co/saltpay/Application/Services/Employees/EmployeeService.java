@@ -11,10 +11,6 @@ public class EmployeeService {
         this.employeeRepository = employeeRepository;
     }
 
-    public Employee[] GetAllEmployees(){
-       return this.employeeRepository.GetAllEmployees();
-    }
-
     public Employee[] GetTodayBirthdays(){
         return this.employeeRepository.GetTodayBirthdays();
     }
