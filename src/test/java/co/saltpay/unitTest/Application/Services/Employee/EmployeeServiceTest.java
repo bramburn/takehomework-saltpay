@@ -14,10 +14,6 @@ public class EmployeeServiceTest {
 
 class MoqRepository implements IEmployeeRepository {
 
-    @Override
-    public Employee[] GetAllEmployees() {
-        return new Employee[0];
-    }
 
     @Override
     public Employee[] GetTodayBirthdays() {
