@@ -5,6 +5,8 @@ import co.saltpay.Application.Services.Employees.EmployeeService;
 import co.saltpay.Domain.Entity.Employees.Employee;
 import org.junit.jupiter.api.Test;
 
+import java.util.Date;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertInstanceOf;
 
@@ -16,7 +18,7 @@ class MoqRepository implements IEmployeeRepository {
 
 
     @Override
-    public Employee[] GetTodayBirthdays() {
+    public Employee[] GetTodayBirthdays(Date date) {
         return new Employee[0];
     }
 }
