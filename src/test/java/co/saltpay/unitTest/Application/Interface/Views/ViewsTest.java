@@ -13,19 +13,19 @@ public class ViewsTest {
 
         // init the fake view that can either print or do whatever
         MoqView view = new MoqView();
-
+        view.returnView(fake);
 
         assertEquals("Fake Name",fake.getName());
 
         // testing if Types work and the data parsed and set by the main class is good.
         // we can create ui specific ones for the specified UI
-        assertEquals("Fake Name",view.returnView("Fake Name"));
+        assertEquals("Fake Name",view.toString());
 
     }
 }
 
 // created a fake objectk
-class FakeObj {
+class FakeObj extends Object {
     private String name = null;
 
     FakeObj(String name) {
@@ -38,10 +38,16 @@ class FakeObj {
 }
 
 
-class MoqView implements IView {
+class MoqView implements IView{
+
+    protected FakeObj s;
+    @Override
+    public void returnView(Object s) {
+    this.s = (FakeObj) s;
+    }
 
     @Override
-    public Object returnView(Object s) {
-        return s;
+    public String toString() {
+        return s.getName();
     }
 }

@@ -1,7 +1,9 @@
 package co.saltpay.Application.Common.Interface;
 
+import java.util.Collection;
+
 public interface IView {
 
-    // todo: fix method overrides here for void or Object
-    <T> T returnView(Object s);
+    <T extends Object> void returnView(T s);
+
 }
