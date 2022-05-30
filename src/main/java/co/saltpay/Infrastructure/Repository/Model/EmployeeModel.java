@@ -4,9 +4,6 @@ import co.saltpay.Domain.Entity.Employees.Employee;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeFormatterBuilder;
 import java.util.Date;
 
 public class EmployeeModel extends Employee {

@@ -1,34 +1,39 @@
-Given a JSON file with a list of people and their dates of birth, write a program to print out the people whose birthday is today.
+# Intro
 
-If a person was born on Feb 29th, then their birthday during a non-leap year should be considered to be Feb 28th.
+Codesubmit interview test for Bhavesh Ramburn
+- Email: nitrogen@gmail.com
 
-Input sample file:
+# Instruction
 
+## Requirements
+
+- Java SDK 11
+- Maven
+
+## Steps
+
+Step 1)
+
+Make sure you have Java SDK installed from [Java](https://www.oracle.com/java/technologies/downloads/)
+as well as Maven
+
+Run the following after you have maven and the JDK.
+
+```shell
+mvn compile
 ```
-[
-    ["Doe", "John", "1982/10/08"],
-    ["Wayne", "Bruce", "1965/01/30"],
-    ["Gaga", "Lady", "1986/03/28"],
-    ["Curry", "Mark", "1988/02/29"]
-]
-```
 
-You can use whichever programming language you like. The assignment should take 60 to 90 min. If it’s taking longer, consider whether you’re complicating things.
+Step 2)
 
-If you make any assumptions, trade-offs or de-prioritise features for timeliness, please document these decisions.
+Testing the application.
 
-Your submission must have:
+With Maven installed you can use `mvn test` to run the test
 
-* Instructions to run the code
 
-* Tests to check if your code is correct, robust and complete
+Step 3)
 
-* Edge cases handled and tested
+To run the application you can run the following:
 
-* Iterative development, backed by commit history
 
-* Modular, cohesive code with sensible separation of concerns
 
-Bonus points for following Test-Driven Development.
 
-Please do not overcomplicate the code. You don’t need a web framework, database or message queues for this submission. Keep it simple!
