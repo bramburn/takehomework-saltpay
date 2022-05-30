@@ -15,7 +15,7 @@ public class EmployeeController {
     private IView view;
 
 
-    EmployeeController(EmployeeService employeeService, IView view){
+    public EmployeeController(EmployeeService employeeService, IView view){
         this.employeeService = employeeService;
 
         this.view = view;

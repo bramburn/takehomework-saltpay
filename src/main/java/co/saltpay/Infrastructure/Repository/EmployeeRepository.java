@@ -17,7 +17,7 @@ public class EmployeeRepository implements IEmployeeRepository {
     private IDriverData jsonDriver;
 
 
-    EmployeeRepository(IDriverData jsonDriver) {
+    public EmployeeRepository(IDriverData jsonDriver) {
         this.jsonDriver = jsonDriver;
     }
 

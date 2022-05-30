@@ -15,8 +15,13 @@ public class View implements IView {
 
         Employee[] local = (Employee[]) s;
         System.out.println("Today's list of Birthdays are:");
-        for (Employee item : local) {
-            System.out.printf("Name: %s %s%n", item.firstName, item.lastName);
+        if (local.length > 0) {
+
+            for (Employee item : local) {
+                System.out.printf("Name: %s %s%n", item.firstName, item.lastName);
+            }
+        } else {
+            System.out.println("No one");
         }
 
 
