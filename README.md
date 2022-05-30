@@ -21,7 +21,13 @@ as well as Maven
 Run the following after you have maven and the JDK.
 
 ```shell
-mvn compile
+mvn compile 
+```
+
+or 
+
+```shell 
+mvn dependency:resolve
 ```
 
 Step 2)
@@ -30,6 +36,7 @@ Testing the application.
 
 With Maven installed you can use `mvn test` to run the test
 
+![Running Maven Test](./docs/img003.png)
 
 Step 3)
 
@@ -57,21 +64,50 @@ _Please make sure JAVA is set on your path_
 
 Examples:
 
-Testing a random day
+Testing any given day
 
 ```shell
 java -jar target/BackendBirthdayApp.jar "C:\Users\bramburn\Dev\backend-birthday-assignment-1-fxtpqy\sample.json" "2000/04/02"
 ```
 
+
+Testing February 29th
 ```shell
-java -jar target/BackendBirthdayApp.jar "C:\Users\bramburn\Dev\backend-birthday-assignment-1-fxtpqy\sample.json" "2000/04/02"
+java -jar .\target\BackendBirthdayApp.jar "C:\Users\bramburn\Dev\backend-birthday-assignment-1-fxtpqy\sample.json" "2022/02/28"
 ```
+![Testing Feb 29th](./docs/img001.png)
+
+Testing February 28th
+```shell
+java -jar .\target\BackendBirthdayApp.jar "C:\Users\bramburn\Dev\backend-birthday-assignment-1-fxtpqy\sample.json" "2024/02/29"
+```
+![Testing Feb 28th](./docs/img002.png)
+
 
 # Assumptions
 
 Here is a list of assumptions I've had during building the application:
+I assume :
 
-- 
+- The application will receive 2 args, 1 to the path of the .json file in the format in the requirements.md
+- The file location is absolute
+- The date format is YYYY/MM/DD
+- You require the ability to replace the UI, Infrastructure, or Application
+
+
+
+# Todo
+
+Some todos:
+
+- Implementing dependency injection - I'm not worked with any standalone DI packages
+- Improve build for cleaner JAR
+- Creating a Singleton for the driver
+- Improve tests to include failures, I was struggling to get Junit to work properly
+- Split the Controller so that it reads arguments from a separate class instead of passing it directly
+- Implement the resources reference properly so that it links to the app
+- Setup args to use without absolute path
+
 
 
 
