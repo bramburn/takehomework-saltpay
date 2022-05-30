@@ -17,17 +17,19 @@ public class EmployeeModel extends Employee {
         this.dateOfBirth = date;
     }
 
-    public EmployeeModel(String firstName, String lastName, String date){
+    public EmployeeModel(String firstName, String lastName, String date) {
         this.lastName = lastName;
         this.firstName = firstName;
-        SimpleDateFormat formatter = new SimpleDateFormat("y/MM/dd");
-        Date date1;
         try {
+            SimpleDateFormat formatter = new SimpleDateFormat("y/MM/dd");
+            Date date1;
+
             date1 = formatter.parse(date);
+            this.dateOfBirth = date1;
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
-        this.dateOfBirth = date1;
+
     }
 
 
