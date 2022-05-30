@@ -3,19 +3,20 @@ package co.saltpay.Application.Services.Employees;
 import co.saltpay.Application.Common.Interface.IEmployeeRepository;
 import co.saltpay.Application.Common.MoqEmployeeRepository;
 import co.saltpay.Domain.Entity.Employees.Employee;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Arrays;
 import java.util.Date;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
-class EmployeeServiceTest {
+
+public class EmployeeServiceTest {
 
     @Test
-    void CheckAnyDate() {
+public void CheckAnyDate() {
 
         IEmployeeRepository repo = new MoqEmployeeRepository();
         EmployeeService service = new EmployeeService(repo);
@@ -34,7 +35,7 @@ class EmployeeServiceTest {
     }
 
     @Test
-    void ShouldShowEmpty() {
+public void ShouldShowEmpty() {
 
         IEmployeeRepository repo = new EmptyMoqRepository();
         EmployeeService service = new EmployeeService(repo);

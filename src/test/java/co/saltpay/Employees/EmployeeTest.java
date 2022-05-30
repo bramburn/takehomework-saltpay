@@ -1,16 +1,16 @@
-package co.saltpay.unitTest.Domain.Entity.Employees;
+package co.saltpay.Employees;
 
 import co.saltpay.Domain.Entity.Employees.Employee;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.lang.reflect.Field;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 public class EmployeeTest {
 
     @Test
-    void CheckIfEmployeeEntityHasProps() throws NoSuchFieldException {
+public void CheckIfEmployeeEntityHasProps() throws NoSuchFieldException {
 
         Employee emp = new Employee();
 

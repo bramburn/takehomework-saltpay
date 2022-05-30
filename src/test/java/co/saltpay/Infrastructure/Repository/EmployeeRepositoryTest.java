@@ -3,18 +3,20 @@ package co.saltpay.Infrastructure.Repository;
 import co.saltpay.Domain.Entity.Employees.Employee;
 import co.saltpay.Infrastructure.Common.Interface.IDriverData;
 import co.saltpay.Infrastructure.Repository.Model.EmployeeModel;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
+
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-class EmployeeRepositoryTest {
+
+public class EmployeeRepositoryTest {
 
     @Test
-    void checkMoqDataNonLeap() {
+public void checkMoqDataNonLeap() {
         IDriverData moqDriver = new MoqDriver();
         EmployeeRepository repo = new EmployeeRepository(moqDriver);
 
@@ -31,7 +33,7 @@ class EmployeeRepositoryTest {
 
 
     @Test
-    void checkMoqDataLeap() {
+public void checkMoqDataLeap() {
         IDriverData moqDriver = new MoqDriver();
         EmployeeRepository repo = new EmployeeRepository(moqDriver);
 
@@ -47,7 +49,7 @@ class EmployeeRepositoryTest {
     }
 
     @Test
-    void checkMoqDataLeap29th() {
+public void checkMoqDataLeap29th() {
         IDriverData moqDriver = new MoqDriver();
         EmployeeRepository repo = new EmployeeRepository(moqDriver);
 
@@ -63,7 +65,7 @@ class EmployeeRepositoryTest {
     }
 
     @Test
-    void CheckNormalDate() {
+public void CheckNormalDate() {
         IDriverData moqDriver = new MoqDriver();
         EmployeeRepository repo = new EmployeeRepository(moqDriver);
 

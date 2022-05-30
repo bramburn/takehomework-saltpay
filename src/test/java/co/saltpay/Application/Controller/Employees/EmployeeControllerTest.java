@@ -5,28 +5,19 @@ import co.saltpay.Application.Common.Interface.IView;
 import co.saltpay.Application.Services.Employees.EmployeeService;
 import co.saltpay.Application.Common.MoqEmployeeRepository;
 import co.saltpay.Domain.Entity.Employees.Employee;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
 import java.util.Arrays;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
 
-class EmployeeControllerTest {
 
-    @Test
-    void getAllBirthdaysForToday() {
+public class EmployeeControllerTest {
 
-        assertAll(() -> {
-            IEmployeeRepository repo = new MoqEmployeeRepository();
-            EmployeeService service = new EmployeeService(repo);
-            IView MoqViewForController = new MoqViewForController();
-            EmployeeController employeeController = new EmployeeController(service, MoqViewForController);
-            employeeController.GetAllBirthdaysForToday();
-        });
-    }
+
 
     @Test
-    void checkCount() {
+public void checkCount() {
         IEmployeeRepository repo = new MoqEmployeeRepository();
         EmployeeService service = new EmployeeService(repo);
         MoqViewForController MoqViewForController = new MoqViewForController();

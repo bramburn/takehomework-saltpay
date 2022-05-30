@@ -1,14 +1,15 @@
-package co.saltpay.unitTest.Application.Interface.Views;
+package co.saltpay.Application.Views;
 
 import co.saltpay.Application.Common.Interface.IView;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.Assert.assertEquals;
+
 
 public class ViewsTest {
 
     @Test
-    void TestInputAndReturnOfView() {
+public void TestInputAndReturnOfView() {
         FakeObj fake = new FakeObj("Fake Name");
 
         // init the fake view that can either print or do whatever
@@ -25,8 +26,8 @@ public class ViewsTest {
 }
 
 // created a fake objectk
-class FakeObj extends Object {
-    private String name = null;
+class FakeObj  {
+    private String name;
 
     FakeObj(String name) {
         this.name = name;
