@@ -32,7 +32,7 @@ public class JsonDriver implements IDriverData {
         }
 
         Employee[] employees = new Employee[obj.size() - 1];
-        SimpleDateFormat formatter = new SimpleDateFormat("YYYY/MM/dd");
+        SimpleDateFormat formatter = new SimpleDateFormat("y/MM/dd");
 
         for (int i = 0; i < obj.size(); i++) {
             List o = (List) obj.get(i);
