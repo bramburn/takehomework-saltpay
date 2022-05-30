@@ -15,9 +15,8 @@ import static org.junit.Assert.assertEquals;
 public class EmployeeControllerTest {
 
 
-
     @Test
-public void checkCount() {
+    public void checkCount() {
         IEmployeeRepository repo = new MoqEmployeeRepository();
         EmployeeService service = new EmployeeService(repo);
         MoqViewForController MoqViewForController = new MoqViewForController();

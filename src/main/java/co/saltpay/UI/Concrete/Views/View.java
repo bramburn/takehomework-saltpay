@@ -14,6 +14,7 @@ public class View implements IView {
         // plus its going to be over complicating it
 
         Employee[] local = (Employee[]) s;
+
         System.out.println("Today's list of Birthdays are:");
         if (local.length > 0) {
 

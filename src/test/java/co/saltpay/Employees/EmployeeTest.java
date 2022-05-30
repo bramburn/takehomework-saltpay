@@ -10,7 +10,7 @@ import static org.junit.Assert.assertEquals;
 public class EmployeeTest {
 
     @Test
-public void CheckIfEmployeeEntityHasProps() throws NoSuchFieldException {
+    public void CheckIfEmployeeEntityHasProps() throws NoSuchFieldException {
 
         Employee emp = new Employee();
 

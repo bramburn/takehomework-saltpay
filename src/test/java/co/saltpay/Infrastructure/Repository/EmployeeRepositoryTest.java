@@ -1,11 +1,13 @@
 package co.saltpay.Infrastructure.Repository;
 
 import co.saltpay.Domain.Entity.Employees.Employee;
-import co.saltpay.Infrastructure.Common.Interface.IDriverData;
+import co.saltpay.Infrastructure.Common.Interface.IDriverClass;
 import co.saltpay.Infrastructure.Repository.Model.EmployeeModel;
 import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
 
 
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -15,10 +17,17 @@ import static org.junit.Assert.assertEquals;
 
 public class EmployeeRepositoryTest {
 
+    private URL resourcePath;
+    @BeforeAll
+    public void setupResource()
+    {
+        resourcePath =  getClass().getClassLoader().getResource("Json/EmployeeData.json");
+    }
     @Test
 public void checkMoqDataNonLeap() {
-        IDriverData moqDriver = new MoqDriver();
-        EmployeeRepository repo = new EmployeeRepository(moqDriver);
+        IDriverClass moqDriver = new MoqDriver();
+
+        EmployeeRepository repo = new EmployeeRepository(moqDriver, resourcePath);
 
         SimpleDateFormat format = new SimpleDateFormat("y/MM/dd");
 
@@ -34,8 +43,8 @@ public void checkMoqDataNonLeap() {
 
     @Test
 public void checkMoqDataLeap() {
-        IDriverData moqDriver = new MoqDriver();
-        EmployeeRepository repo = new EmployeeRepository(moqDriver);
+        IDriverClass moqDriver = new MoqDriver();
+        EmployeeRepository repo = new EmployeeRepository(moqDriver, resourcePath);
 
         SimpleDateFormat format = new SimpleDateFormat("y/MM/dd");
 
@@ -50,8 +59,8 @@ public void checkMoqDataLeap() {
 
     @Test
 public void checkMoqDataLeap29th() {
-        IDriverData moqDriver = new MoqDriver();
-        EmployeeRepository repo = new EmployeeRepository(moqDriver);
+        IDriverClass moqDriver = new MoqDriver();
+        EmployeeRepository repo = new EmployeeRepository(moqDriver, resourcePath);
 
         SimpleDateFormat format = new SimpleDateFormat("y/MM/dd");
 
@@ -66,8 +75,8 @@ public void checkMoqDataLeap29th() {
 
     @Test
 public void CheckNormalDate() {
-        IDriverData moqDriver = new MoqDriver();
-        EmployeeRepository repo = new EmployeeRepository(moqDriver);
+        IDriverClass moqDriver = new MoqDriver();
+        EmployeeRepository repo = new EmployeeRepository(moqDriver, resourcePath);
 
         SimpleDateFormat format = new SimpleDateFormat("y/MM/dd");
 
@@ -84,10 +93,10 @@ public void CheckNormalDate() {
 
 
 }
-class MoqDriver implements IDriverData{
+class MoqDriver implements IDriverClass {
 
     @Override
-    public Employee[] readFile() {
+    public Employee[] readFile(URL s) {
         List<Employee> employees = new ArrayList<>();
         employees.add(new EmployeeModel("Kaps","Ramburn","1988/02/29"));
         employees.add(new EmployeeModel("Kaps","Ramburn2","1988/02/28"));

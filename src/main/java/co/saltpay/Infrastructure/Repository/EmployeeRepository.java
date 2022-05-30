@@ -2,11 +2,10 @@ package co.saltpay.Infrastructure.Repository;
 
 import co.saltpay.Application.Common.Interface.IEmployeeRepository;
 import co.saltpay.Domain.Entity.Employees.Employee;
-import co.saltpay.Infrastructure.Common.Interface.IDriverData;
+import co.saltpay.Infrastructure.Common.Interface.IDriverClass;
 import org.jetbrains.annotations.NotNull;
 
-import java.time.LocalDate;
-import java.time.ZoneId;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
@@ -14,18 +13,24 @@ import java.util.List;
 
 public class EmployeeRepository implements IEmployeeRepository {
 
-    private IDriverData jsonDriver;
+    private IDriverClass jsonDriver;
+    private URL resourcePath;
 
-
-    public EmployeeRepository(IDriverData jsonDriver) {
+    public EmployeeRepository(IDriverClass jsonDriver, URL resourcePath) {
         this.jsonDriver = jsonDriver;
+        this.resourcePath = resourcePath;
     }
 
     @Override
     public Employee[] GetTodayBirthdays(Date today) {
 
         List<Employee> ListToReturn = new LinkedList<Employee>();
-        Employee[] employees = this.jsonDriver.readFile();
+        Employee[] employees;
+        try {
+            employees = this.jsonDriver.readFile(this.resourcePath);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         boolean calcExtraDay = calcExtraDay(today);
         Calendar todaysCalendarDay = new Calendar.Builder().setInstant(today).build();
 
@@ -35,8 +40,7 @@ public class EmployeeRepository implements IEmployeeRepository {
             Calendar EmployeeCalendar = new Calendar.Builder().setInstant(employees[i].dateOfBirth).build();
 
             if (calcExtraDay) {
-                if (((EmployeeCalendar.get(Calendar.DAY_OF_MONTH) == todaysCalendarDay.get(Calendar.DAY_OF_MONTH)) || (EmployeeCalendar.get(Calendar.DAY_OF_MONTH) == 29) && EmployeeCalendar.get(Calendar.MONTH) == todaysCalendarDay.get(Calendar.MONTH)))
-                {
+                if (((EmployeeCalendar.get(Calendar.DAY_OF_MONTH) == todaysCalendarDay.get(Calendar.DAY_OF_MONTH)) || (EmployeeCalendar.get(Calendar.DAY_OF_MONTH) == 29) && EmployeeCalendar.get(Calendar.MONTH) == todaysCalendarDay.get(Calendar.MONTH))) {
                     ListToReturn.add(employees[i]);
                 }
             } else {

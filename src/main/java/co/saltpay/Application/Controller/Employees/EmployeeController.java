@@ -21,9 +21,11 @@ public class EmployeeController {
         this.view = view;
 
     }
-
-    public void GetAllBirthdaysForToday(){
-        Employee[] data = employeeService.GetTodayBirthdays(new Date());
+    public void GetAllBirthdaysForToday(Date date){
+        Employee[] data = employeeService.GetTodayBirthdays(date);
         view.returnView(data);
+    }
+    public void GetAllBirthdaysForToday(){
+        GetAllBirthdaysForToday(new Date());
     }
 }
